@@ -7,11 +7,9 @@ This is a temporary script file.
 
 import random
 import statistics
-import matplotlib.pyplot as plt
-import os
+#import matplotlib.pyplot as plt
+#import os
 from math import floor
-
-random.seed(0)
 
 d6 = [1,2,3,4,5,6]
 points = {3:-5, 4:-4, 5:-3, 6:-2, 7:-1, 8:0, 9:1, 10:2, 11:3, 12:4, 13:5, 14:6, 
@@ -55,6 +53,7 @@ def point_calc(stats):
     
 
 if __name__ == '__main__':
+    random.seed(0)    
     all_rolls = []    
     for i in range(100000):
         a = point_calc(roll_stats())
@@ -63,6 +62,9 @@ if __name__ == '__main__':
     print('Mean: ',statistics.mean(all_rolls), 'SD: ',
           statistics.stdev(all_rolls), 'Median: ',
           statistics.median(all_rolls), 'Mode: ', statistics.mode(all_rolls))
+    ## Output
+    ## Mean:  30.45301 SD:  7.917368173016073 Median:  30.0 Mode:  26
+          
     #plt.hist(all_rolls) 
     #plt.show()
     #plt.savefig('point_buy5.png')
