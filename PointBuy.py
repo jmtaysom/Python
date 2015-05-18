@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
+Point Buy Equivilant Calculator
+Created By jmtaysom
 
-This is a temporary script file.
+This is used to roll attribute arrays and find their point but value. With the
+point buy value it finds the basic statistics for a large number of repetitions.
+The results show that the standard 4d6 drop the lowest and reroll under certain
+circumstances is equivilant to a 30 point buy system on average.
 """
 
 import random
