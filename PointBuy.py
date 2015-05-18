@@ -58,18 +58,24 @@ def point_calc(stats):
 
 if __name__ == '__main__':
     random.seed(0)    
-    all_rolls = []    
+    all_rolls = []
+    all_stats = []    
     for i in range(100000):
-        a = point_calc(roll_stats())
-        #if a:
+        s = roll_stats()
+        a = point_calc(s)
         all_rolls.append(a)
+        all_stats.append(s)
     print('Mean: ',statistics.mean(all_rolls), 'SD: ',
           statistics.stdev(all_rolls), 'Median: ',
           statistics.median(all_rolls), 'Mode: ', statistics.mode(all_rolls))
+    
+    print('Best roll: ', all_stats[all_rolls.index(max(all_rolls))], 
+          'Point Value:', max(all_rolls))
     ## Output
     ## Mean:  30.45301 SD:  7.917368173016073 Median:  30.0 Mode:  26
+    ## Best roll:  [17, 13, 18, 16, 17, 18] Point Value: 73
           
     #plt.hist(all_rolls) 
     #plt.show()
-    #plt.savefig('point_buy5.png')
-    #os.system('eog point_buy5.png &')
+    #plt.savefig('point_buy.png')
+    #os.system('eog point_buy.png &')
