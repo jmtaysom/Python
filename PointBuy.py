@@ -11,7 +11,7 @@ circumstances is equivilant to a 30 point buy system on average.
 
 import random
 import statistics
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #import os
 from math import floor
 
@@ -74,8 +74,8 @@ if __name__ == '__main__':
     ## Output
     ## Mean:  30.45301 SD:  7.917368173016073 Median:  30.0 Mode:  26
     ## Best roll:  [17, 13, 18, 16, 17, 18] Point Value: 73
-          
-    #plt.hist(all_rolls) 
-    #plt.show()
-    #plt.savefig('point_buy.png')
+    binsize = max(all_rolls) - min(all_rolls)     
+    plt.hist(all_rolls, bins=binsize) 
+    plt.show()
+    plt.savefig('point_buy_smBins2.png')
     #os.system('eog point_buy.png &')
