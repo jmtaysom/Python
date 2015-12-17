@@ -1,39 +1,40 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 29 18:17:52 2015
+Created on Thurs Dec 17  09:17:35 2015
 
 @author: jmtaysom
 """
+from __future__ import division
 from math import sqrt
 
-def find_prime(prime):
-    Primes = [2,3,5]
-    x = len(Primes)
+def primes_gen():
+    primes = [2,3,5]
     n = 7
     increment = [4,2,4,2,4,6,2,6]
     
-    while n <prime:
-        srn =  int(sqrt(n))
-        for i in Primes[3:srn]:
-            if n % i == 0 and prime % n == 0:
-                print(n)                
+    while True:
+        for i in primes[3:int(sqrt(n))]:
+            if n % i == 0:
                 break
         else:
-            Primes.append(n)
-            x += 1
+            primes.append(n)
+            yield primes.pop(0)
         a = increment.pop(0)
         increment.append(a)
         n += a
-    return Primes
     
-goal = 600851475143    
-    
-#primes = find_prime(goal/2)
-#print('Found the primes')
-#primes.sort(reverse=True)
-#factors = []
-#for prime in range(1,int(goal/2)+1):
-#    if goal % prime == 0:
-#        factors.append(prime)
-#print(prime)
-find_prime(goal)
+
+
+def prime_factors(factoree):
+    primes = primes_gen()
+    prime_factors = []
+    f = factoree
+
+    while f > 1:
+        prime = primes.next()
+        while f % prime == 0:
+            f = f / prime
+            prime_factors.append(prime)
+    return prime_factors
+
+print prime_factors(600851475143)
