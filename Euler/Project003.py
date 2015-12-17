@@ -25,10 +25,9 @@ def primes_gen():
     
 
 
-def prime_factors(factoree):
+def prime_factors(f):
     primes = primes_gen()
     prime_factors = []
-    f = factoree
 
     while f > 1:
         prime = primes.next()
