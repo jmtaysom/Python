@@ -1,12 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thurs Dec 17  09:17:35 2015
-
-@author: jmtaysom
-"""
 from __future__ import division
 from math import sqrt
-
 
 def primes_gen():
     counter = 0
@@ -34,17 +27,17 @@ def primes_gen():
             a = increment.pop(0)
             increment.append(a)
             n += a
-
-
-def prime_factors(f):
+        
+def sum_primes(largest):
     primes = primes_gen()
-    prime_factors = []
-
-    while f > 1:
+    prime = primes.next()
+    prime_list = []
+    total = 0
+    while prime < largest:
+        total += prime
+        prime_list.append(prime)
         prime = primes.next()
-        while f % prime == 0:
-            f = f / prime
-            prime_factors.append(prime)
-    return prime_factors
+        
+    return total
 
-print prime_factors(600851475143)
+print sum_primes(2000000)
