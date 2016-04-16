@@ -9,7 +9,7 @@ br = mechanize.Browser()
 #and if you need to fill out forms with passwords.
 
 # Open your site
-br.open('http://http://archive.wizards.com/default.asp?x=dnd/arch/we')
+br.open('http://http://archive.wizards.com/default.asp?x=dnd/arch/ls')
 
 f=open("source.html","w")
 f.write(br.response().read()) #can be helpful for debugging maybe
@@ -34,10 +34,10 @@ def downloadlink(l):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
                 f.flush()
-    print name," has been downloaded"
+    print(name," has been downloaded")
     return name
         
-    print name," has been downloaded"
+    print(name," has been downloaded")
     #br.back()
 
 
