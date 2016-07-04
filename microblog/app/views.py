@@ -32,8 +32,7 @@ def roll():
         rolls.sort()
         rolls.pop(0)
         attributes.append(sum(rolls))
-
-    return (' '.join((str(x) for x in attributes)))
+    return ' '.join((str(x) for x in attributes))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -47,3 +46,4 @@ def login():
                            title='Sign In',
                            form=form,
                            providers=app.config['OPENID_PROVIDERS'])
+
