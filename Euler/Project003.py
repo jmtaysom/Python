@@ -12,11 +12,10 @@ def primes_gen():
     primes = [2,3,5]
     n = 7
     increment = [4,2,4,2,4,6,2,6]
-    
+    yield 2
+    yield 3
+    yield 5
     while True:
-        yield 2
-        yield 3
-        yield 5
         for i in primes[3:int(sqrt(n))]:
             if n % i == 0:
                 break
@@ -33,10 +32,15 @@ def prime_factors(f):
     prime_factors = []
 
     while f > 1:
-        prime = primes.next()
+        prime = next(primes)
         while f % prime == 0:
             f = f / prime
             prime_factors.append(prime)
     return prime_factors
 
-print prime_factors(600851475143)
+if __name__ == '__main__':
+    from time import time
+    start = time()
+    for i in range(10):
+        prime_factors(600851475143)
+    print((time() - start)/10)
